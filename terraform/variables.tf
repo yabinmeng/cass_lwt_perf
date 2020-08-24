@@ -78,7 +78,7 @@ variable "instance_count" {
    default = {
       opsc      = 1
       nb        = 1
-      cassandra = 2
+      cassandra = 6
    }
 }
 
@@ -89,6 +89,5 @@ variable "instance_type" {
       opsc      = "m5a.2xlarge"
       nb        = "m5a.2xlarge"
       cassandra = "i3.4xlarge"
-      #cassandra = "m5.2xlarge"
    }
 }
