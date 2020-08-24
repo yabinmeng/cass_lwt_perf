@@ -2,19 +2,11 @@ provider "aws" {
    region     = var.region
 }
 
-# 
-# SSH key used to access the EC2 instances
-#
-resource "aws_key_pair" "dse_terra_ssh" {
-    key_name = var.keyname
-    public_key = file("${var.ssh_key_localpath}/${var.ssh_key_filename}.pub")
-}
-
 #
 # The local directory where the SSH key files are stored
 #
 variable "ssh_key_localpath" {
-   default = "/Users/yabinmeng/.ssh"
+   default = "<local_ssh_key_folder_name>"
 }
 
 #
@@ -22,6 +14,14 @@ variable "ssh_key_localpath" {
 #
 variable "ssh_key_filename" {
    default = "id_rsa_aws_mc_demo"
+}
+
+# 
+# SSH key used to access the EC2 instances
+#
+resource "aws_key_pair" "dse_terra_ssh" {
+    key_name = var.keyname
+    public_key = file("${var.ssh_key_localpath}/${var.ssh_key_filename}.pub")
 }
 
 #
