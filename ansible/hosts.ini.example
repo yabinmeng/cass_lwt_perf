@@ -28,6 +28,3 @@ cluster_name=MyAppCluster
 <DSE_DC2_NODE1_public_ip> private_ip=<DSE_DC2_NODE1_prvivate_ip> opsc_srv_ip=<OpsCenter_Srv_private_ip>
 <DSE_DC2_NODE2_public_ip> private_ip=<DSE_DC2_NODE2_prvivate_ip> opsc_srv_ip=<OpsCenter_Srv_private_ip>
 <DSE_DC2_NODE2_public_ip> private_ip=<DSE_DC2_NODE2_prvivate_ip> opsc_srv_ip=<OpsCenter_Srv_private_ip>
-
-[osparmchg:children]
-dse
