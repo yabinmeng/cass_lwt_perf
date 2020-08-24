@@ -1,0 +1,33 @@
+[dse:children]
+dse_dc1
+dse_dc2
+
+[dse_dc1]
+<DSE_DC1_NODE1_public_ip> private_ip=<DSE_DC1_NODE1_prvivate_ip> seed=true dc=DC1 rack=RAC1 vnode=1 initial_token=
+<DSE_DC1_NODE2_public_ip> private_ip=<DSE_DC1_NODE2_prvivate_ip> seed=false dc=DC1 rack=RAC1 vnode=1 initial_token=
+<DSE_DC1_NODE2_public_ip> private_ip=<DSE_DC1_NODE2_prvivate_ip> seed=false dc=DC1 rack=RAC1 vnode=1 initial_token=
+
+[dse_dc2]
+<DSE_DC2_NODE1_public_ip> private_ip=<DSE_DC2_NODE1_prvivate_ip> seed=true dc=DC2 rack=RAC1 vnode=1 initial_token=
+<DSE_DC2_NODE2_public_ip> private_ip=<DSE_DC2_NODE2_prvivate_ip> seed=false dc=DC2 rack=RAC1 vnode=1 initial_token=
+<DSE_DC2_NODE2_public_ip> private_ip=<DSE_DC2_NODE2_prvivate_ip> seed=false dc=DC2 rack=RAC1 vnode=1 initial_token=
+
+[dse:vars]
+cluster_name=MyAppCluster
+
+[nosqlbench]
+<NoSQLBench_Clnt_public_ip> private_ip=<NoSQLBench_Clnt_private_ip>
+
+[opsc_srv]
+<OpsCenter_Srv_public_ip> private_ip=<OpsCenter_Srv_private_ip>
+
+[datastax_agent]
+<DSE_DC1_NODE1_public_ip> private_ip=<DSE_DC1_NODE1_prvivate_ip> opsc_srv_ip=<OpsCenter_Srv_private_ip>
+<DSE_DC1_NODE2_public_ip> private_ip=<DSE_DC1_NODE2_prvivate_ip> opsc_srv_ip=<OpsCenter_Srv_private_ip>
+<DSE_DC1_NODE2_public_ip> private_ip=<DSE_DC1_NODE2_prvivate_ip> opsc_srv_ip=<OpsCenter_Srv_private_ip>
+<DSE_DC2_NODE1_public_ip> private_ip=<DSE_DC2_NODE1_prvivate_ip> opsc_srv_ip=<OpsCenter_Srv_private_ip>
+<DSE_DC2_NODE2_public_ip> private_ip=<DSE_DC2_NODE2_prvivate_ip> opsc_srv_ip=<OpsCenter_Srv_private_ip>
+<DSE_DC2_NODE2_public_ip> private_ip=<DSE_DC2_NODE2_prvivate_ip> opsc_srv_ip=<OpsCenter_Srv_private_ip>
+
+[osparmchg:children]
+dse

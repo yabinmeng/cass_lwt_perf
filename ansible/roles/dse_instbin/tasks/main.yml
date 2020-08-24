@@ -1,0 +1,17 @@
+---
+- name: Install DSE version 5.0+
+  apt:
+    name: "{{ item }}"
+    state: present
+    update_cache: yes
+  with_items:
+    - dse=5.1.18-1
+    - dse-full=5.1.18-1
+    - dse-libcassandra=5.1.18-1
+    - dse-libgraph=5.1.18-1
+    - dse-libhadoop2-client-native=5.1.18-1
+    - dse-libhadoop2-client=5.1.18-1
+    - dse-liblog4j=5.1.18-1
+    - dse-libsolr=5.1.18-1
+    - dse-libspark=5.1.18-1
+    - dse-libtomcat=5.1.18-1
