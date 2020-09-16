@@ -1,0 +1,1 @@
+**NOTE**: the NoSQLBench workload file is excluded from this repository on purpose.  
