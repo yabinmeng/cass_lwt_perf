@@ -1,1 +1,1 @@
-**NOTE**: the NoSQLBench workload file is excluded from this repository on purpose.  
+**NOTE**: the NoSQLBench scenario definition file (mc_liq_demo.yaml) is excluded from this repository on purpose.  
