@@ -90,7 +90,7 @@ resource "aws_security_group" "sg_opsc_node" {
       from_port = 0
       to_port = 0
       protocol = "-1"
-      security_groups = ["${aws_security_group.sg_mc_demo_group.id}"]
+      security_groups = [aws_security_group.sg_mc_demo_group.id]
    }
 
    # OpsCenter Definitions port
@@ -98,7 +98,7 @@ resource "aws_security_group" "sg_opsc_node" {
       from_port = 443
       to_port = 443
       protocol = "tcp"
-      security_groups = ["${aws_security_group.sg_mc_demo_group.id}"]
+      security_groups = [aws_security_group.sg_mc_demo_group.id]
    }
 
    # Stomp ports: agent -> opsc
@@ -106,7 +106,7 @@ resource "aws_security_group" "sg_opsc_node" {
       from_port = 61619
       to_port = 61620
       protocol = "tcp"
-      security_groups = ["${aws_security_group.sg_mc_demo_group.id}"]
+      security_groups = [aws_security_group.sg_mc_demo_group.id]
    }
 }
 
@@ -128,7 +128,7 @@ resource "aws_security_group" "sg_dse_node" {
       from_port = 0
       to_port = 0
       protocol = "-1"
-      security_groups = ["${aws_security_group.sg_mc_demo_group.id}"]
+      security_groups = [aws_security_group.sg_mc_demo_group.id]
    }
 
    # DSE inter-node cluster communication port
@@ -138,7 +138,7 @@ resource "aws_security_group" "sg_dse_node" {
       from_port = 7000
       to_port = 7001
       protocol = "tcp"
-      security_groups = ["${aws_security_group.sg_mc_demo_group.id}"]
+      security_groups = [aws_security_group.sg_mc_demo_group.id]
    }
 
    # Spark master inter-node communication port
@@ -146,7 +146,7 @@ resource "aws_security_group" "sg_dse_node" {
       from_port = 7077
       to_port = 7077
       protocol = "tcp"
-      security_groups = ["${aws_security_group.sg_mc_demo_group.id}"]
+      security_groups = [aws_security_group.sg_mc_demo_group.id]
    }
 
    # JMX monitoring port
@@ -154,7 +154,7 @@ resource "aws_security_group" "sg_dse_node" {
       from_port = 7199
       to_port = 7199
       protocol = "tcp"
-      security_groups = ["${aws_security_group.sg_mc_demo_group.id}"]
+      security_groups = [aws_security_group.sg_mc_demo_group.id]
    }
 
    # Port for inter-node messaging service
@@ -162,7 +162,7 @@ resource "aws_security_group" "sg_dse_node" {
       from_port = 8609
       to_port = 8609
       protocol = "tcp"
-      security_groups = ["${aws_security_group.sg_mc_demo_group.id}"]
+      security_groups = [aws_security_group.sg_mc_demo_group.id]
    }
 
    # Native transport port
@@ -170,7 +170,7 @@ resource "aws_security_group" "sg_dse_node" {
       from_port = 9042
       to_port = 9042
       protocol = "tcp"
-      security_groups = ["${aws_security_group.sg_mc_demo_group.id}"]
+      security_groups = [aws_security_group.sg_mc_demo_group.id]
    }
 
    # Native transport port, with SSL
@@ -178,7 +178,7 @@ resource "aws_security_group" "sg_dse_node" {
       from_port = 9142
       to_port = 9142
       protocol = "tcp"
-      security_groups = ["${aws_security_group.sg_mc_demo_group.id}"]
+      security_groups = [aws_security_group.sg_mc_demo_group.id]
    }
 
    # Stomp port: opsc -> agent
@@ -186,6 +186,6 @@ resource "aws_security_group" "sg_dse_node" {
       from_port = 61621
       to_port = 61621
       protocol = "tcp"
-      security_groups = ["${aws_security_group.sg_mc_demo_group.id}"]
+      security_groups = [aws_security_group.sg_mc_demo_group.id]
    }
 }

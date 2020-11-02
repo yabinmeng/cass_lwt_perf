@@ -6,14 +6,14 @@ provider "aws" {
 # The local directory where the SSH key files are stored (e.g. /home/<users>/.ssh)
 #
 variable "ssh_key_localpath" {
-   default = "<local_ssh_key_file_folder>"
+   default = "/Users/yabinmeng/.ssh"
 }
 
 #
 # The local private SSH key file name 
 #
 variable "ssh_key_filename" {
-   default = "id_rsa_aws_mc_demo"
+   default = "id_rsa_aws"
 }
 
 # 
@@ -35,15 +35,22 @@ variable "keyname" {
 # Default AWS region
 #
 variable "region" {
-  default = "us-east-1"
+  #default = "us-east-1"
+  default = "eu-west-2"
 }
 
 #
 # Default OS image: Ubuntu
+# NOTE: AMI ID is specific to the chosen AWS region
 #
 variable "ami_id" {
    # Ubuntu Server 18.04 LTS (HVM), SSD Volume Type (64-bit x86)
-   default = "ami-0bcc094591f354be2"
+   # - for region: us-east-1 (N. Virginia)
+   #default = "ami-0bcc094591f354be2"
+
+   # Ubuntu Server 18.04 LTS (HVM), SSD Volume Type (64-bit x86)
+   # - for region: eu-west-2 (London)
+   default = "ami-05c424d59413a2876"
 }
 
 #
@@ -78,7 +85,7 @@ variable "instance_count" {
    default = {
       opsc      = 1
       nb        = 1
-      cassandra = 6
+      cassandra = 3
    }
 }
 
