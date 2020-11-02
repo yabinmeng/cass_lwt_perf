@@ -6,6 +6,13 @@
   tasks: 
   - name: Create XFS on local NVME SSD disk
     shell: "mkfs.xfs -f /dev/{{ dse_data_block_devstr }}"
+
+  - name: Create Cassandra user and group
+    user:
+      name: cassandra
+      system: yes
+      state: present
+      create_home: no
   
   - name: Create a folder as DSE data home directory
     file:
