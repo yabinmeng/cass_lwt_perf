@@ -10,7 +10,7 @@
   tasks: 
   - name: Install DSE OpsCenter
     apt:
-      name: "opscenter=6.7.8"
+      name: "opscenter={{ opsc_ver_target }}"
       state: present
       update_cache: yes
   - name: Configure OpsCenter to enable HTTPS access 
@@ -45,11 +45,15 @@
     - { role: datastax_pkg }
     - { role: openjdk8_inst }
   tasks:
-    - name: Install datastax-agent
-      apt:
-        name: "datastax-agent=6.7.8"
+    - name: Install sysstat packate
+      apt: 
+        name: sysstat
         state: present
         update_cache: yes
+    - name: Install datastax-agent
+      apt:
+        name: "datastax-agent={{ opsc_ver_target }}"
+        state: present
     - name: Configure stomp_address
       lineinfile:
         name: "/var/lib/datastax-agent/conf/address.yaml"
