@@ -2,6 +2,7 @@
 - name: Add a DataStax repository file
   lineinfile:
     name: "{{ dse_repo_file }}"
+    mode: 666
     create: yes
     regexp: 'debian\.datastax\.com\/enterprise'
     line: "deb https://debian.datastax.com/enterprise stable main"

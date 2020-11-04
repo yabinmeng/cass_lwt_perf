@@ -9,7 +9,7 @@
     shell: 'date +%Y%m%d%H%M%S'
     register: current_timestamp
   roles:
-  - { role: datastax_pkg }
+    - { role: datastax_pkg }
 
 
 # Install and configure DSE

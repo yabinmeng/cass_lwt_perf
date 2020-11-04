@@ -1,9 +1,11 @@
 ---
 ### Target/Current DSE verson
-dse_ver_target: 5.1.18
+dse_ver_target: 5.1.19
+#dse_ver_target: 6.8.5
 
 ### OpsCenter/DataStax-agent version
-opsc_ver_target: 6.7.8
+#opsc_ver_target: 6.7.8
+opsc_ver_target: 6.8.5
 
 ### DSE system file location
 #
