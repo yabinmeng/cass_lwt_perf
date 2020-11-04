@@ -6,7 +6,7 @@ provider "aws" {
 # The local directory where the SSH key files are stored (e.g. /home/<users>/.ssh)
 #
 variable "ssh_key_localpath" {
-   default = "<local_ssh_folder_path>"
+   default = "/Users/yabinmeng/.ssh"
 }
 
 #
