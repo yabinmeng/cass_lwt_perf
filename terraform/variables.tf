@@ -1,12 +1,8 @@
-provider "aws" {
-   region     = var.region
-}
-
 #
 # The local directory where the SSH key files are stored (e.g. /home/<users>/.ssh)
 #
 variable "ssh_key_localpath" {
-   default = "<local_ssh_file_folder>"
+   default = "/Users/yabinmeng/.ssh"
 }
 
 #
@@ -14,14 +10,6 @@ variable "ssh_key_localpath" {
 #
 variable "ssh_key_filename" {
    default = "id_rsa_aws"
-}
-
-# 
-# SSH key used to access the EC2 instances
-#
-resource "aws_key_pair" "dse_terra_ssh" {
-    key_name = var.keyname
-    public_key = file("${var.ssh_key_localpath}/${var.ssh_key_filename}.pub")
 }
 
 #
@@ -54,10 +42,17 @@ variable "ami_id" {
 }
 
 #
+# AWS resource tag identifier
+#
+variable "tag_identifier" {
+   default = "mc_demo"
+} 
+
+#
 # Environment description
 #
 variable "env" {
-   default = "mc-demo"
+   default = "automation_test"
 }
 
 #
@@ -69,23 +64,27 @@ variable "env" {
 # NOTE: make sure the type string matches the "key" string
 #       in variable "instance_count/instance_type" map
 # 
-variable "dse_clnt_opsc_type" {
-   default = "opsc"
+variable "opsc_srv_type" {
+   default = "opsc_srv"
 }
-variable "dse_clnt_nb_type" {
-   default = "nb"
+variable "nb_clnt_type" {
+   default = "nb_clnt"
 }
-variable "dse_core_type" {
-   default = "cassandra"
+variable "dse_app_dc1_type" {
+   default = "dse_app_dc1"
+}
+variable "dse_app_dc2_type" {
+   default = "dse_app_dc2"
 }
 
 # How many instances for each category
 variable "instance_count" {
    type = map
    default = {
-      opsc      = 1
-      nb        = 1
-      cassandra = 3
+      opsc_srv    = 1
+      nb_clnt     = 1
+      dse_app_dc1 = 3
+      dse_app_dc2 = 3
    }
 }
 
@@ -93,8 +92,9 @@ variable "instance_count" {
 variable "instance_type" {
    type = map
    default = {
-      opsc      = "m5a.2xlarge"
-      nb        = "m5a.2xlarge"
-      cassandra = "i3.4xlarge"
+      opsc_srv    = "m5a.2xlarge"
+      nb_clnt     = "m5a.2xlarge"
+      dse_app_dc1 = "i3.4xlarge"
+      dse_app_dc2 = "i3.4xlarge"
    }
 }

@@ -1,5 +1,5 @@
 ---
-- hosts: dse
+- hosts: osparmchg
   any_errors_fatal: true
   become: true
   become_method: sudo
